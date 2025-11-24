@@ -1,0 +1,7 @@
+# Ignore everything
+*
+
+# But include only the necessary files/directories, for example:
+!src/
+!Dockerfile
+!nginx.conf

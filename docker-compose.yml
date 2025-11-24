@@ -1,0 +1,8 @@
+services:
+  otoland:
+    image: ghcr.io/otoma-systems/otoland:latest
+    container_name: OtoLand
+    restart: unless-stopped
+    volumes:
+      - ./data:/usr/share/nginx/html/resources/data
+      - ./images:/usr/share/nginx/html/resources/images

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Otoma Systems - Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="resources/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-content">
+            <a href="index" class="logo">
+                <img src="resources/images/company-logo.svg" alt="Otoma Systems Logo">
+            </a>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="dashboard">Dashboard</a></li>
+                <li><a href="about">About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="page-content">
+        <section class="dashboard">
+            <div class="dashboard-content">
+                <h1>Application Dashboard</h1>
+                <p class="dashboard-subtitle">Access all Otoma Systems services and applications</p>
+
+                <!-- Public Apps -->
+                <div class="app-section">
+                    <div class="section-header">
+                        <i class="fas fa-globe"></i>
+                        <h2>Public Apps</h2>
+                    </div>
+                    <div id="public-apps-grid" class="app-grid">
+                        <!-- Apps will be loaded dynamically from apps.json -->
+                    </div>
+                </div>
+
+                <!-- Restricted Apps (collapsible) -->
+                <div class="app-section">
+                    <div class="section-header collapsible-header" onclick="toggleCollapse('restricted-section')">
+                        <div class="collapsible-header-left">
+                            <i class="fas fa-lock"></i>
+                            <h2>Restricted Apps</h2>
+                        </div>
+                        <i id="restricted-section-toggle" class="fas fa-chevron-down collapse-toggle collapsed"></i>
+                    </div>
+                    <div id="restricted-section" class="collapsible-content">
+                        <div id="restricted-apps-grid" class="app-grid">
+                            <!-- Apps will be loaded dynamically from apps.json -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Administration Apps (collapsible) -->
+                <div class="app-section">
+                    <div class="section-header collapsible-header" onclick="toggleCollapse('admin-section')">
+                        <div class="collapsible-header-left">
+                            <i class="fas fa-tools"></i>
+                            <h2>Administration Apps</h2>
+                        </div>
+                        <i id="admin-section-toggle" class="fas fa-chevron-down collapse-toggle collapsed"></i>
+                    </div>
+                    <div id="admin-section" class="collapsible-content">
+                        <div id="admin-apps-grid" class="app-grid">
+                            <!-- Apps will be loaded dynamically from apps.json -->
+                        </div>
+                    </div>
+                </div>
+                <!-- Password Modal -->
+                <div id="password-modal" class="modal">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h2><i class="fas fa-shield-halved"></i> Administrator Authentication</h2>
+                        </div>
+                        <p class="modal-description">Enter the administrator password to access admin applications.</p>
+                        
+                        <div class="password-input-group">
+                            <input type="password" id="admin-password-input" placeholder="Enter password" autocomplete="off">
+                        </div>
+                        
+                        <div id="password-error" class="password-error">Invalid password</div>
+                        
+                        <div class="modal-buttons">
+                            <button onclick="closePasswordModal()" class="btn btn-secondary">
+                                <i class="fas fa-times"></i> Cancel
+                            </button>
+                            <button onclick="verifyPassword()" class="btn btn-primary">
+                                <i class="fas fa-unlock"></i> Authenticate
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2025 Otoma Systems. All rights reserved. | opensource@otoma.com.br</p>
+    </footer>
+
+    <script src="resources/script.js"></script>
+</body>
+</html>

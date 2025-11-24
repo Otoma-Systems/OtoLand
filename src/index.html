@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Otoma Systems - Home</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="resources/style.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-content">
+            <a href="index" class="logo">
+                <img src="resources/images/company-logo.svg" alt="Otoma Systems Logo">
+            </a>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="dashboard">Dashboard</a></li>
+                <li><a href="about">About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="page-content">
+        <section class="hero">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Otoma Systems</h1>
+                    <p>Innovative software solutions and open-source projects. Building tools and libraries for developers, with a focus on automation, embedded systems, and creative problem-solving.</p>
+                    <div class="hero-buttons">
+                        <a href="dashboard" class="btn btn-primary">
+                            <i class="fas fa-th-large"></i>
+                            Access Dashboard
+                        </a>
+                        <a href="https://github.com/Otoma-Systems" target="_blank" class="btn btn-secondary">
+                            <i class="fab fa-github"></i>
+                            View on GitHub
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-card">
+                        <i class="fas fa-shield-alt"></i>
+                        <h3>Verified</h3>
+                        <p>otoma.com.br</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-globe"></i>
+                        <h3>Brazil</h3>
+                        <p>Based in São Paulo</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="home-dashboard">
+            <div class="app-section">
+                <div class="section-header">
+                    <i class="fas fa-globe"></i>
+                    <h2>Main Apps</h2>
+                </div>
+                <div id="home-apps-grid" class="app-grid">
+                    <!-- Apps will be loaded dynamically from apps.json -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>© 2025 Otoma Systems. All rights reserved. | opensource@otoma.com.br</p>
+    </footer>
+
+    <script src="resources/script.js"></script>
+</body>
+</html>
