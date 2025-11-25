@@ -10,7 +10,8 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      TAG_NAME: ${{ (format('ghcr.io/{0}/{1}', github.repository_owner, github.event.repository.name)) }}
+      IMAGE_NAME: ${{ (format('ghcr.io/{0}/{1}', github.repository_owner, github.event.repository.name)) }}
+      TAG_NAME: ${{ github.event.release.tag_name }}
 
     permissions:
       contents: read
@@ -31,7 +32,10 @@ jobs:
           password: ${{ secrets.GHCR_TOKEN }}
 
       - name: Normalize image name to lowercase
-        run: echo "TAG_NAME=$(echo '${{ env.TAG_NAME }}' | tr '[:upper:]' '[:lower:]')" >> $GITHUB_ENV
+        run: echo "IMAGE_NAME=$(echo '${{ env.IMAGE_NAME }}' | tr '[:upper:]' '[:lower:]')" >> $GITHUB_ENV
+
+      - name: Extract version number and set as env variable
+        run: echo "VERSION_TAG=${{ split($TAG_NAME, '-') [1] }}" >> $GITHUB_ENV
 
       - name: Build and push the Docker image
         uses: docker/build-push-action@v6
@@ -40,5 +44,5 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: |
-            ${{ env.TAG_NAME }}:latest
-            ${{ env.TAG_NAME }}:${{ github.sha }}
+            ${{ env.IMAGE_NAME }}:latest
+            ${{ env.IMAGE_NAME }}:${{ env.VERSION_TAG }}
